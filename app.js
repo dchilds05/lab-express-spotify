@@ -39,7 +39,6 @@ app.get("/albums/:id", (req, res) => {
     spotifyApi.getArtistAlbums(req.params.id)
     .then(albumInfo => {
         res.render("albums", {albumList: albumInfo.body.items});
-        console.log(albumInfo.body);
     })
     .catch(err => console.log('The error while searching albums occurred: ', err));
 })
@@ -48,7 +47,6 @@ app.get("/tracks/:id", (req, res) => {
     spotifyApi.getAlbumTracks(req.params.id)
     .then(tracksInfo => {
         res.render("tracks", {trackList: tracksInfo.body.items});
-        console.log(tracksInfo.body);
     })
     .catch(err => console.log('The error while searching tracks occurred: ', err));
 })
